@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Temporal</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css"> </head>
+<body>
+  <header>
+    <div class="logo">Email Temporal</div>
+    <div class="language-selector">
+      <span>Idioma: Español ▼</span>
+      </div>
+  </header>
+
+  <main>
+    <section class="email-box">
+      <h1>Tu Email Temporal</h1>
+      <div class="email-display">
+        <input type="text" id="tempEmail" value="tu.email.aleatorio@dominio.com" readonly>
+        <button id="copyEmail" class="btn">Copiar</button>
+        <button id="newEmail" class="btn btn-primary">Nuevo Email</button>
+      </div>
+      <p class="description">
+        Utiliza esta dirección de correo electrónico desechable para registrarte en sitios web, probar servicios o proteger tu privacidad. Recibirás los correos aquí mismo.
+      </p>
+    </section>
+
+    <section class="inbox-section">
+      <h2>Bandeja de Entrada</h2>
+      <div class="inbox-controls">
+        <button id="refreshInbox" class="btn btn-secondary">Actualizar Bandeja</button>
+        <button id="deleteAllEmails" class="btn btn-danger">Eliminar Todos</button>
+      </div>
+      <div id="emailList" class="email-list">
+        <div class="no-emails">
+          <p>No hay correos en tu bandeja de entrada aún.</p>
+          <p>Esperando nuevos mensajes...</p>
+        </div>
+        </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Email Temporal. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Pequeño script para la funcionalidad básica (copiar, nuevo email)
+    document.addEventListener('DOMContentLoaded', () => {
+      const tempEmailInput = document.getElementById('tempEmail');
+      const copyEmailBtn = document.getElementById('copyEmail');
+      const newEmailBtn = document.getElementById('newEmail');
+      const refreshInboxBtn = document.getElementById('refreshInbox');
+      const deleteAllEmailsBtn = document.getElementById('deleteAllEmails');
+      const emailList = document.getElementById('emailList');
+
+      // Generar un email temporal simple al cargar la página (ejemplo)
+      function generateRandomEmail() {
+        const randomString = Math.random().toString(36).substring(2, 10);
+        const domains = ['tempmail.com', 'mailinator.com', 'inbox.org']; // Ejemplos de dominios
+        const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+        return `temp-${randomString}@${randomDomain}`;
+      }
+
+      tempEmailInput.value = generateRandomEmail();
+
+      copyEmailBtn.addEventListener('click', () => {
+        tempEmailInput.select();
+        document.execCommand('copy');
+        copyEmailBtn.textContent = '¡Copiado!';
+        setTimeout(() => {
+          copyEmailBtn.textContent = 'Copiar';
+        }, 2000);
+      });
+
+      newEmailBtn.addEventListener('click', () => {
+        tempEmailInput.value = generateRandomEmail();
+        emailList.innerHTML = `
+          <div class="no-emails">
+            <p>No hay correos en tu bandeja de entrada aún.</p>
+            <p>Esperando nuevos mensajes...</p>
+          </div>
+        `;
+        // Aquí iría la lógica para limpiar la bandeja de entrada real en el backend
+        alert('Se ha generado una nueva dirección de email y la bandeja se ha vaciado.');
+      });
+
+      refreshInboxBtn.addEventListener('click', () => {
+        // Aquí iría la lógica para hacer una llamada API para obtener nuevos correos
+        alert('Refrescando bandeja de entrada... (Esta es solo una simulación)');
+        // Puedes añadir un temporizador o un indicador de carga aquí
+      });
+
+      deleteAllEmailsBtn.addEventListener('click', () => {
+        if (confirm('¿Estás seguro de que quieres eliminar todos los correos? Esta acción es irreversible.')) {
+          emailList.innerHTML = `
+            <div class="no-emails">
+              <p>No hay correos en tu bandeja de entrada aún.</p>
+              <p>Esperando nuevos mensajes...</p>
+            </div>
+          `;
+          alert('Todos los correos han sido eliminados.');
+          // Aquí iría la lógica para eliminar los correos del backend
+        }
+      });
+
+      // Ejemplo de cómo agregar un email (para pruebas)
+      // setTimeout(() => {
+      //   emailList.innerHTML = `
+      //     <div class="email-item">
+      //       <div class="email-header">
+      //         <span class="email-from">De: Soporte &lt;soporte@dominio.com&gt;</span>
+      //         <span class="email-date">Ahora</span>
+      //       </div>
+      //       <div class="email-subject">Asunto: Confirmación de registro</div>
+      //       <div class="email-actions">
+      //         <button class="btn btn-small btn-view">Ver</button>
+      //         <button class="btn btn-small btn-delete">Borrar</button>
+      //       </div>
+      //     </div>
+      //     ` + emailList.innerHTML;
+      // }, 5000);
+
+    });
+  </script>
+</body>
+</html>

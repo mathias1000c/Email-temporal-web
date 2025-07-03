@@ -1,0 +1,377 @@
+/* Importación de la fuente Inter (asegúrate de que el link en HTML esté correcto) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Reset básico y estilos generales */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #f9f9f9;
+  color: #333;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #222;
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #007bff; /* Color para el logo */
+}
+
+.language-selector {
+  cursor: pointer;
+  font-size: 0.9rem;
+  color: #555;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: background-color 0.2s ease;
+}
+
+.language-selector:hover {
+  background-color: #f0f0f0;
+}
+
+/* Main content area */
+main {
+  flex: 1;
+  padding: 2rem;
+  max-width: 900px; /* Aumentado ligeramente para mejor espacio */
+  margin: 0 auto;
+  width: 100%; /* Asegura que ocupe todo el ancho disponible */
+  box-sizing: border-box; /* Incluye padding en el ancho */
+}
+
+/* Email Box section */
+.email-box {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px; /* Más redondeado */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08); /* Sombra más pronunciada */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.email-box h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+}
+
+.email-display {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Espacio entre elementos */
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap; /* Para que los botones se envuelvan */
+}
+
+.email-display input {
+  flex-grow: 1; /* Permite que el input crezca */
+  max-width: 450px; /* Ancho máximo para el input */
+  padding: 1rem 1.2rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  text-align: center;
+  background-color: #e9ecef; /* Un poco de color de fondo para el input readonly */
+  color: #555;
+  font-weight: 500;
+  cursor: text; /* Indica que es un campo de texto */
+  white-space: nowrap; /* Evita que el texto del email se rompa */
+  overflow: hidden; /* Oculta el desbordamiento si el email es muy largo */
+  text-overflow: ellipsis; /* Añade puntos suspensivos si el email es muy largo */
+}
+
+.description {
+  font-size: 0.95rem;
+  color: #666;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Buttons */
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+  font-weight: 600;
+  white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+
+.btn:hover {
+  transform: translateY(-1px); /* Efecto ligero al pasar el mouse */
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  color: #fff;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+}
+
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.85rem;
+}
+
+.btn-view {
+  background-color: #28a745;
+  color: #fff;
+}
+
+.btn-view:hover {
+  background-color: #218838;
+}
+
+.btn-delete {
+  background-color: #f0ad4e; /* Amarillo-naranja para borrar */
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background-color: #ec971f;
+}
+
+
+/* Inbox Section */
+.inbox-section {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  margin-top: 2rem;
+}
+
+.inbox-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #007bff;
+  text-align: center;
+}
+
+.inbox-controls {
+  display: flex;
+  justify-content: flex-end; /* Alinear botones a la derecha */
+  gap: 10px;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.email-list {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  min-height: 200px; /* Para mostrar que hay espacio */
+  padding: 1rem;
+  background-color: #fafafa;
+}
+
+.no-emails {
+  text-align: center;
+  color: #888;
+  padding: 2rem;
+  font-size: 1.1rem;
+}
+
+.no-emails p:last-child {
+  margin-bottom: 0;
+  font-style: italic;
+}
+
+.email-item {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.email-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.email-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  color: #777;
+  flex-wrap: wrap;
+}
+
+.email-from {
+  font-weight: 600;
+  color: #333;
+}
+
+.email-subject {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.email-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 0.5rem;
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  margin-top: auto; /* Empuja el footer hacia abajo */
+  background-color: #fff;
+  color: #777;
+  font-size: 0.9rem;
+  border-top: 1px solid #eee;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .logo {
+    margin-bottom: 0.5rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .email-display {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px; /* Más espacio cuando se apilan */
+  }
+
+  .email-display input {
+    max-width: 100%; /* El input ocupa todo el ancho disponible */
+    margin-bottom: 0; /* Elimina margen inferior extra si se apilan */
+  }
+
+  .btn {
+    width: 100%; /* Botones de ancho completo */
+    padding: 0.9rem 1.5rem;
+  }
+
+  .email-box h1, .inbox-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .inbox-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 0.8rem;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+
+  .email-box {
+    padding: 1.5rem;
+  }
+
+  .email-box h1 {
+    font-size: 1.6rem;
+  }
+
+  .email-display input {
+    font-size: 1rem;
+    padding: 0.8rem;
+  }
+
+  .btn {
+    font-size: 0.9rem;
+  }
+
+  .inbox-section {
+    padding: 1.5rem;
+  }
+
+  .email-item {
+    padding: 1rem;
+  }
+
+  .email-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .email-date {
+    margin-top: 5px;
+  }
+}
